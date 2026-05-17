@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
 
-const API_URL = 'http://localhost:5000/api/dramas';
+const API_URL = '/api/dramas';
 
 function App() {
   const [dramas, setDramas] = useState([]);
