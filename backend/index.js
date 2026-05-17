@@ -24,19 +24,19 @@ let dramas = [
 ];
 
 // GET: Obtener todas las reseñas
-app.get('/api/dramas', (req, res) => {
+app.get('/dramas', (req, res) => {
   res.json(dramas);
 });
 
 // GET por ID: Consultar una reseña específica
-app.get('/api/dramas/:id', (req, res) => {
+app.get('/dramas/:id', (req, res) => {
   const drama = dramas.find(d => d.id === parseInt(req.params.id));
   if (!drama) return res.status(404).send('Drama no encontrado');
   res.json(drama);
 });
 
 // POST: Crear una nueva reseña
-app.post('/api/dramas', (req, res) => {
+app.post('/dramas', (req, res) => {
   const newDrama = {
     id: dramas.length > 0 ? Math.max(...dramas.map(d => d.id)) + 1 : 1,
     nombre: req.body.nombre,
@@ -50,7 +50,7 @@ app.post('/api/dramas', (req, res) => {
 });
 
 // PUT: Actualizar una reseña existente
-app.put('/api/dramas/:id', (req, res) => {
+app.put('/dramas/:id', (req, res) => {
   const dramaIndex = dramas.findIndex(d => d.id === parseInt(req.params.id));
   if (dramaIndex === -1) return res.status(404).send('Drama no encontrado');
 
@@ -67,7 +67,7 @@ app.put('/api/dramas/:id', (req, res) => {
 });
 
 // DELETE: Eliminar una reseña
-app.delete('/api/dramas/:id', (req, res) => {
+app.delete('/dramas/:id', (req, res) => {
   const dramaIndex = dramas.findIndex(d => d.id === parseInt(req.params.id));
   if (dramaIndex === -1) return res.status(404).send('Drama no encontrado');
 
